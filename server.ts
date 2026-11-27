@@ -22,7 +22,10 @@ Bun.serve({
     let path = url.pathname;
 
     if (path === "/") {
-        path = "/testcard/index.html";
+        path = "/projects/testcard1/index.html";
+    } else if (path.endsWith("/")) {
+        // Serve index.html for directory requests
+        path = path + "index.html";
     }
 
     const filePath = `.${path}`;
