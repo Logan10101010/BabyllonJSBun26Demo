@@ -46,7 +46,7 @@ Bun.serve({
           return new Response(`Build error: ${result.logs.join('\n')}`, { status: 500 });
         }
         
-        const transpiled = await result.outputs[0].text();
+       const transpiled = await result.outputs[0]!.text();
         
         return new Response(transpiled, {
           headers: { "Content-Type": "application/javascript" }
